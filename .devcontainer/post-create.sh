@@ -40,10 +40,6 @@ set -euo pipefail
 sudo apt-get update
 sudo apt-get install -y curl ca-certificates gnupg
 
-# Add Helm APT repo (current location; thanks to Buildkite for hosting per Helm docs/blog)
-curl -fsSL https://helm.sh/helm.asc | sudo gpg --dearmor -o /usr/share/keyrings/helm.gpg
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] \
-https://apt.helm.sh/ stable main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
-
-sudo apt-get update
-sudo apt-get install -y helm
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-4
+chmod 700 get_helm.sh
+./get_helm.sh
