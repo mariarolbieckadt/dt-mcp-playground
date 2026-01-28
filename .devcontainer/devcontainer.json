@@ -1,6 +1,7 @@
 {
     "name": "default",
     "image": "mcr.microsoft.com/devcontainers/python:dev-3.13-bullseye",
+    "build": { "dockerfile": "Dockerfile" },    
     "features": {
       "ghcr.io/devcontainers/features/node:1": {},
       "ghcr.io/devcontainers-extra/features/kubectl-asdf:2": {},
